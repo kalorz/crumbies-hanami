@@ -19,7 +19,13 @@ Hanami::Model.configure do
   #    adapter type: :sql, uri: 'postgres://localhost/crumbies_development'
   #    adapter type: :sql, uri: 'mysql://localhost/crumbies_development'
   #
-  adapter type: :file_system, uri: ENV['DATABASE_URL']
+  adapter type: :sql, uri: ENV['DATABASE_URL']
+
+  ##
+  # Migrations
+  #
+  migrations 'db/migrations'
+  schema     'db/schema.sql'
 
   ##
   # Database mapping
@@ -27,13 +33,13 @@ Hanami::Model.configure do
   # Intended for specifying application wide mappings.
   #
   mapping do
-    # collection :users do
-    #   entity     User
-    #   repository UserRepository
-    #
-    #   attribute :id,   Integer
-    #   attribute :name, String
-    # end
+    collection :posts do
+      entity     Post
+      repository PostRepository
+
+      attribute :id,    Integer
+      attribute :title, String
+    end
   end
 end.load!
 
