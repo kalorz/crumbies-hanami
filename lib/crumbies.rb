@@ -33,9 +33,9 @@ Hanami::Model.configure do
   # Intended for specifying application wide mappings.
   #
   mapping do
-    collection :posts do
-      entity     Post
-      repository PostRepository
+    collection :users do
+      entity     Entry
+      repository EntryRepository
 
       attribute :id,    Integer
       attribute :title, String

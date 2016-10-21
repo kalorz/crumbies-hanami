@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe PostRepository do
+describe EntryRepository do
   # place your tests here
 end
