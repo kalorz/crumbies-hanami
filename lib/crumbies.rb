@@ -33,12 +33,15 @@ Hanami::Model.configure do
   # Intended for specifying application wide mappings.
   #
   mapping do
-    collection :users do
+    collection :entries do
       entity     Entry
       repository EntryRepository
 
-      attribute :id,    Integer
-      attribute :title, String
+      attribute :id,          String
+      attribute :title,       String
+      attribute :happened_at, DateTime
+      attribute :created_at,  DateTime
+      attribute :updated_at,  DateTime
     end
   end
 end.load!
